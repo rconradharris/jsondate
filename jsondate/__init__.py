@@ -14,7 +14,7 @@ def _datetime_encoder(obj):
     return None
 
 
-def _datetime_object_hook(dict_):
+def _datetime_decoder(dict_):
     for key, value in dict_.iteritems():
         try:
             datetime_obj = datetime.datetime.strptime(value, ISO8601_FMT)
@@ -40,10 +40,10 @@ def dump(*args, **kwargs):
 
 
 def loads(*args, **kwargs):
-    kwargs['object_hook'] = _datetime_object_hook
+    kwargs['object_hook'] = _datetime_decoder
     return json.loads(*args, **kwargs)
 
 
 def load(*args, **kwargs):
-    kwargs['object_hook'] = _datetime_object_hook
+    kwargs['object_hook'] = _datetime_decoder
     return json.load(*args, **kwargs)
