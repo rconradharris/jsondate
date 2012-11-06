@@ -26,3 +26,17 @@ Example::
 
     >>> json.loads(data)
     {u'created_at': datetime.date(2012, 10, 31)}
+
+
+
+Unicode Empty Strings
+=====================
+
+The ``json`` standard library module will return ``unicode`` objects for all
+strings except empty strings, which are returned as ``str`` objects.
+
+This inconsistency can be annoying when using libraries that expect all input
+to be ``unicode``.
+
+``jsondate`` fixes this by returning empty-strings as ``unicode`` objects as
+well.

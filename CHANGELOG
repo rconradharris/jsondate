@@ -1,0 +1,5 @@
+0.1.0
+    - Empty strings are now decoded to `unicode` instead of `str`
+
+0.1.0
+    - ISO8601 support

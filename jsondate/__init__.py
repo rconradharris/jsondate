@@ -16,6 +16,13 @@ def _datetime_encoder(obj):
 
 def _datetime_decoder(dict_):
     for key, value in dict_.iteritems():
+        # The built-in `json` library will `unicode` strings, except for empty
+        # strings which are of type `str`. `jsondate` patches this for
+        # consistency so that `unicode` is always returned.
+        if value == '':
+            dict_[key] = u''
+            continue
+
         try:
             datetime_obj = datetime.datetime.strptime(value, ISO8601_FMT)
             dict_[key] = datetime_obj
