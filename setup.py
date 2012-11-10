@@ -3,7 +3,7 @@ import setuptools
 
 setuptools.setup(
     name='jsondate',
-    version='0.1.1',
+    version='0.1.2',
     url='https://github.com/rconradharris/jsondate',
     license='MIT',
     author='Rick Harris',

@@ -1,4 +1,7 @@
-0.1.0
+0.1.2
+    - Unexpected data types now raise TypeError when encoding
+
+0.1.1
     - Empty strings are now decoded to `unicode` instead of `str`
 
 0.1.0

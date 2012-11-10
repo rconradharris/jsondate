@@ -11,7 +11,7 @@ def _datetime_encoder(obj):
     elif isinstance(obj, datetime.date):
         return obj.strftime(DATE_FMT)
 
-    return None
+    raise TypeError
 
 
 def _datetime_decoder(dict_):

@@ -61,3 +61,8 @@ class JSONDateTests(unittest.TestCase):
         jsondate.dump(orig_dict, fileobj)
         fileobj.seek(0)
         self.assertEqual(orig_dict, jsondate.load(fileobj))
+
+    def test_unexpected_type_raises(self):
+        dict_ = {'foo': set(['a'])}
+        with self.assertRaises(TypeError):
+            jsondate.dumps(dict_)
